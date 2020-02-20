@@ -4,10 +4,6 @@
     color: red!important;
 }
 
-/* .filed  .spinner-border {
-
-} */
-
 .register-form {
     position: relative;
 }
@@ -18,7 +14,7 @@
     margin-bottom: 30px;
 }
 
-.spinner {
+.register-form .spinner {
     position: absolute;
     z-index: 2;
     height: 100%;
@@ -26,9 +22,6 @@
     background-color: rgba(1, 1, 1, .2);
     backdrop-filter: blur(1.5px)
 }
-
-
-
 
 .scale-in-center {
 	-webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;

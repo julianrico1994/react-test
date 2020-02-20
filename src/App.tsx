@@ -12,7 +12,7 @@ import NoMatch from './components/NoMatch/NoMatch';
 import InputComponents from './components/InputComponents/InputComponents';
 import VotingList from './components/VotingList/VotingList';
 import RegisterForm from './components/RegisterForm/RegisterForm';
-import YouAreIn from './components/RegisterForm/YouAreIn'
+import YouAreIn from './components/RegisterForm/presentationalComponents/YouAreIn'
 
 const App = () => {
     return (
