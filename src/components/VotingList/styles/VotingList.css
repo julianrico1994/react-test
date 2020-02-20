@@ -1,0 +1,18 @@
+
+/* .voting-list {} */
+
+.voting-list .sort {
+    border: 2px solid gray!important;
+}
+.voting-list .sortActive {
+    background-color: gray!important;
+}
+
+.button-group > button:nth-child(1) {
+    margin-right: 1px;
+}
+
+.voting-list .row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
