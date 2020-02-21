@@ -6,6 +6,7 @@ import Form from './presentationalComponents/Form'
 import {
     validateName, validateEmail, clearNumber, formatPhoneNumber, validateNumber
 } from '../helpers/helpers'
+import { NAME_PROYECT, SERVER_TEST } from '../helpers/constants'
 
 interface IFields {
     name: string
@@ -47,13 +48,12 @@ const RegisterForm = (): any => {
             body
         }
 
-        fetch("https://sgaviria.com​/api/1/front-dev/", config)
+        fetch(SERVER_TEST, config)
             .then(response => response.json())
             .then(result => {
                 setFetched(false)
-
                 if (result.status) {
-                    history.push("/you-are-in")
+                    history.push(`${NAME_PROYECT}/you-are-in`)
                 } else if (result.status === false) {
                     setServerState({ isError: true, message: result.error })
                 } else {
@@ -62,6 +62,7 @@ const RegisterForm = (): any => {
             })
             .catch(error => {
                 setFetched(false)
+                setServerState({ isError: true, message: 'catch error' })
                 console.log('error julian', error)
             });
     }
@@ -103,30 +104,3 @@ const RegisterForm = (): any => {
 };
 
 export default RegisterForm;
-
-
-// (() => {
-//     const fecthData = () => {
-//         const body = new URLSearchParams();
-//         body.append("username", 'name');
-//         body.append("email", 'name@email.com');
-//         body.append("phone_number", '3003003030');
-
-//         const config = {
-//             headers: { "Tranqui-FrontendDeveloper": "JulianRico" },
-//             method: 'POST',
-//             mode: 'cors',
-//             body
-//         }
-
-//         fetch("https://sgaviria.com​/api/1/front-dev/", config)
-//             .then(response => response.json())
-//             .then(result => {
-//                 console.log('__result', result);
-//             })
-//             .catch(error => {
-//                 console.log('__error', error)
-//             });
-//     }
-//     fecthData()
-// })()

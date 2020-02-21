@@ -12,28 +12,27 @@ import InputComponents from './components/InputComponents/InputComponents';
 import VotingList from './components/VotingList/VotingList';
 import RegisterForm from './components/RegisterForm/RegisterForm';
 import YouAreIn from './components/RegisterForm/presentationalComponents/YouAreIn'
-// import BodyPage from './components/generic/BodyPage/BodyPage'
+
+const nameApp = '/react-test'
 
 const App = () => {
     return (
         <Router>
             <div className='app container shadow p-3 mb-5 bg-white rounded'>
                 <div className="row">
-
-                    <Menu />
-                    {/* <BodyPage title=''> */}
-
+                    <Menu nameApp={nameApp} />
                     <Switch>
-                        <Route path='/focusable-input' component={InputComponents} />
-                        <Route path='/voting-list/:candidates' component={VotingList} />
-                        <Route path='/register-form' component={RegisterForm} />
-                        <Route path='/you-are-in' component={YouAreIn} />
-                        <Route exact path="/" component={Home} />
-                        <Route component={NoMatch} />
+                        <Route path={`${nameApp}/focusable-input`} component={InputComponents} />
+                        <Route path={`${nameApp}/voting-list/:candidates`} component={VotingList} />
+                        <Route path={`${nameApp}/register-form`} component={RegisterForm} />
+                        <Route path={`${nameApp}/you-are-in`} component={YouAreIn} />
+                        <Route exact path={`${nameApp}/`} component={Home} />
+                        {/* <Route component={NoMatch} /> */}
+                        <Route component={
+                            (props: any) =>
+                                React.createElement(NoMatch, {...props , nameApp})}
+                        />
                     </Switch>
-
-
-                    {/* </BodyPage> */}
                 </div>
             </div>
         </Router>
