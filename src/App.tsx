@@ -26,6 +26,7 @@ const App = () => {
                         <Route path={`${NAME_PROYECT}/register-form`} component={RegisterForm} />
                         <Route path={`${NAME_PROYECT}/you-are-in`} component={YouAreIn} />
                         <Route exact path={`${NAME_PROYECT}/`} component={Home} />
+                        <Route exact path={`/`} component={Home} />
                         {/* <Route component={NoMatch} /> */}
                         <Route component={
                             (props: any) =>
