@@ -17,7 +17,7 @@ const Menu = ({ nameApp }: IMenu) => {
                     <NavLink to={`${nameApp}/focusable-input`} >Focusable-input</NavLink>
                 </li>
                 <li className='list-group-item h6'>
-                    <NavLink to={`${nameApp}/voting-list/${5}`} >voting-list/15</NavLink>
+                    <NavLink to={`${nameApp}/voting-list/${15}`} >voting-list/15</NavLink>
                 </li>
                 <li className='list-group-item h6'>
                     <NavLink to={`${nameApp}/register-form`} >register-form</NavLink>
