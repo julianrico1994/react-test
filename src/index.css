@@ -1,18 +1,16 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
 
 .app.container {
     margin-top: 2.5vmin;
-    padding: 3vmin !important;
-    height: 90vh;
-    /* overflow-y: auto; */
+    padding: 4vmin !important;
+    height: calc(100vh - 80px);
 }
 
-.app > .row {
-    height: 100%;
-    margin-right: 0px;
-    margin-left: 0px;
-}
-
-.app .page {
-    height: 100%;
-    overflow: auto;
+.app.container > .row {
+    flex: 1;
+    overflow-y: auto;
 }

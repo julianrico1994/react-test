@@ -1,7 +1,12 @@
 import React from 'react';
 import { validateVote } from '../../helpers/helpers';
 
-const Vote = ({ votes, handdleSetVote }: { votes: number, handdleSetVote: Function }) => {
+interface IVoteProps {
+    votes: number,
+    handdleSetVote: (vote: number) => void
+}
+
+const Vote = ({ votes, handdleSetVote }: IVoteProps) => {
     return (
         <td className='d-flex justify-content-around'>
             <div>{votes}</div>
@@ -17,7 +22,6 @@ const Vote = ({ votes, handdleSetVote }: { votes: number, handdleSetVote: Functi
                     onClick={() => handdleSetVote(votes - 1)}
                 >-</button>
             </div>
-
         </td>
     )
 }

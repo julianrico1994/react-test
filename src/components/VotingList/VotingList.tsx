@@ -6,13 +6,16 @@ import CandidateDetail from './presentationalComponents/CandidateDetail'
 const VotingList = (props: any) => {
     const propsCandidates = parseInt(props.match.params.candidates)
     const [candidates, setCandidates] = useState(getRandomCandidates(propsCandidates));
-    const [lastUpdatedId, setLastUpdatedId] = useState(0);
+    const [lastUpdatedId, setLastUpdatedId] = useState(null);
     const [sortBy, setSortBy] = useState('id');
 
     const handdleSetVote = (id: number, newVote: number): void => {
         if (validateVote(newVote)) {
+            /* find a certain candidate */
             const candidate = candidates.find(candidate => candidate.id === id) || candidates[0]
+            /*  */
             const newCandidate = { ...candidate, votes: newVote }
+            /* we are raplace de new candidate in the candidates array an then return this new array */
             const newCandidates = candidates.map(candidate => {
                 return (candidate.id === id) ? newCandidate : candidate
             })
@@ -28,13 +31,13 @@ const VotingList = (props: any) => {
     )
 
     return (
-        <div className="voting-list container page col-lg-9">
-            <div className='row content-count-votes d-flex justify-content-between'>
+        <div className="voting-list container page col-lg-8">
+            <div className='row content-count-votes d-flex justify-content-between mb-3'>
                 <div className='h2'>Total votes count: </div>
                 <div className='count h2 text-primary'>{totalVotes()}</div>
             </div>
-            <table className='table table-striped'>
-                <thead className="thead-dark">
+            <table className='table '>
+                <thead className="">
                     <tr>
                         <th scope="col">firstName</th>
                         <th scope="col">lastName</th>

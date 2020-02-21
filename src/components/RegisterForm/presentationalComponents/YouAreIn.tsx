@@ -10,7 +10,7 @@ const YouAreIn = () => {
             <img
                 src={yauAreInImage}
                 className="img-fluid shadow p-3 mb-5 bg-white rounded"
-                alt="Responsive image"
+                alt="yauAreInImage"
             ></img>
         </div>
     );

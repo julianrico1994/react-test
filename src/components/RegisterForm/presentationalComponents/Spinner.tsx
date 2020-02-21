@@ -7,8 +7,7 @@ const Spinner = ({ fetched }: { fetched: boolean }) => {
                 <div className="spinner-border" role="status">
                     <span className="sr-only">Loading...</span>
                 </div>
-            </div>
-        ) : (<div></div>)
+            </div>) : (<div></div>)
     )
 }
 

@@ -1,0 +1,44 @@
+.form-check-custom {
+    display: flex;
+    align-items: center;
+}
+
+.form-check-custom label {
+    margin-bottom: 0;
+    margin-left: 0.6em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.form-check-custom .checkbox,
+.form-check-custom label
+ {
+    margin-right: 0.6em;
+}
+
+
+/* *************************************************************************************************
+Checkbox
+************************************************************************************************* */
+
+.checkbox {
+    --check-size: 1.5em;
+    height: var(--check-size);
+    width: var(--check-size);
+    margin-left: 1.2%;
+    border: 1px var(--blue) solid;
+    border-radius: var(--check-size);
+}
+
+.checkbox.checked {
+    background-color: var(--blue)
+}
+
+input.checkbox {
+    -webkit-appearance: none;
+    outline: none;
+}
+
+

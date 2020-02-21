@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 
-const StatusError = ({ serverState, setServerState }: { serverState: { isError: boolean, message: string }, setServerState: Function, delay?: number }) => {
+const StatusError = ({ serverState, setServerState }: IStatusErrorProps) => {
+
     useEffect(() => {
-        console.log('useeffect');
-        if (serverState.isError) {
+        const isError = serverState.isError
+        if (isError) {
             setTimeout(() => {
                 setServerState({ isError: false, message: '' })
             }, 5000);
         }
-    }, [serverState.isError]);
+    }, [serverState.isError, setServerState]);
+
     const showClass = serverState.isError ? 'scale-in-center' : 'scale-out-center'
 
     return (
@@ -17,6 +19,16 @@ const StatusError = ({ serverState, setServerState }: { serverState: { isError: 
                 {serverState.message}
             </div> : <div></div>
     )
+}
+
+interface IStatusErrorProps {
+    serverState: ISeverState,
+    setServerState: (serverState: ISeverState) => void
+}
+
+export interface ISeverState {
+    isError: boolean,
+    message: string
 }
 
 export default StatusError

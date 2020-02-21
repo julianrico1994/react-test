@@ -2,8 +2,7 @@ import React from "react";
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    useParams
+    Route
 } from "react-router-dom";
 import './index.css'
 import Menu from './components/Menu/Menu'
@@ -13,13 +12,17 @@ import InputComponents from './components/InputComponents/InputComponents';
 import VotingList from './components/VotingList/VotingList';
 import RegisterForm from './components/RegisterForm/RegisterForm';
 import YouAreIn from './components/RegisterForm/presentationalComponents/YouAreIn'
+// import BodyPage from './components/generic/BodyPage/BodyPage'
 
 const App = () => {
     return (
         <Router>
             <div className='app container shadow p-3 mb-5 bg-white rounded'>
                 <div className="row">
+
                     <Menu />
+                    {/* <BodyPage title=''> */}
+
                     <Switch>
                         <Route path='/focusable-input' component={InputComponents} />
                         <Route path='/voting-list/:candidates' component={VotingList} />
@@ -28,6 +31,9 @@ const App = () => {
                         <Route exact path="/" component={Home} />
                         <Route component={NoMatch} />
                     </Switch>
+
+
+                    {/* </BodyPage> */}
                 </div>
             </div>
         </Router>

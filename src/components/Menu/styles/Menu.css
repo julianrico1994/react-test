@@ -1,8 +1,9 @@
 .menu {
     padding-right: 30px;
-    margin-bottom: 30px;
+    flex: 1 1 auto;
 }
 
 .menu .active {
-    color: darkblue;
+    font-size: 1.05em;
+    font-weight: bold;
 }

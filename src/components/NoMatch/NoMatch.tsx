@@ -11,7 +11,7 @@ const NoMatch = ({ location }: INoMatchProps) => (
         <img
             src={lostImage}
             className="img-fluid shadow p-3 mb-5 bg-white rounded"
-            alt="Responsive image"
+            alt="lostImage"
         ></img>
         <div>
             <strong>Error!</strong> No route found matching:

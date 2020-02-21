@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 
-const Field = (
-    { placeholder, name, value, validate, onChange }: IFieldProps
-): React.ReactElement => {
+interface IFieldProps {
+    placeholder?: string,
+    name: string,
+    value?: string,
+    validate?: Function,
+    onChange: Function,
+}
+
+const Field = (props: IFieldProps): React.ReactElement => {
+    const { placeholder, name, value, validate, onChange } = props
     const [errors, setErrors] = useState([])
 
-    const _onChange = (
-        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ): any => {
+    const _onChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
         const { value } = event.target;
         const errors = validate ? validate(value) : [];
         setErrors(errors)
@@ -15,7 +20,6 @@ const Field = (
     };
 
     return (
-
         <div className="filed form-group">
             <label className='h5'>{placeholder}</label>
             <input
@@ -39,14 +43,6 @@ const Field = (
             </ul>
         </div>
     );
-}
-
-interface IFieldProps {
-    placeholder?: string,
-    name: string,
-    value?: string,
-    validate?: Function,
-    onChange: Function,
 }
 
 export default Field
