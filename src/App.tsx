@@ -12,25 +12,27 @@ import InputComponents from './components/InputComponents/InputComponents';
 import VotingList from './components/VotingList/VotingList';
 import RegisterForm from './components/RegisterForm/RegisterForm';
 import YouAreIn from './components/RegisterForm/presentationalComponents/YouAreIn'
-
-const nameApp = '/react-test'
+import { NAME_PROYECT } from './components/helpers/constants'
 
 const App = () => {
     return (
         <Router>
             <div className='app container shadow p-3 mb-5 bg-white rounded'>
                 <div className="row">
-                    <Menu nameApp={nameApp} />
+                    <Menu nameApp={NAME_PROYECT} />
                     <Switch>
-                        <Route path={`${nameApp}/focusable-input`} component={InputComponents} />
-                        <Route path={`${nameApp}/voting-list/:candidates`} component={VotingList} />
-                        <Route path={`${nameApp}/register-form`} component={RegisterForm} />
-                        <Route path={`${nameApp}/you-are-in`} component={YouAreIn} />
-                        <Route exact path={`${nameApp}/`} component={Home} />
+                        <Route path={`${NAME_PROYECT}/focusable-input`} component={InputComponents} />
+                        <Route path={`${NAME_PROYECT}/voting-list/:candidates`} component={VotingList} />
+                        <Route path={`${NAME_PROYECT}/register-form`} component={RegisterForm} />
+                        <Route path={`${NAME_PROYECT}/you-are-in`} component={YouAreIn} />
+                        <Route exact path={`${NAME_PROYECT}/`} component={Home} />
                         {/* <Route component={NoMatch} /> */}
                         <Route component={
                             (props: any) =>
-                                React.createElement(NoMatch, {...props , nameApp})}
+                                React.createElement(
+                                    NoMatch,
+                                    { ...props, nameApp: NAME_PROYECT }
+                                )}
                         />
                     </Switch>
                 </div>
