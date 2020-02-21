@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { getRandomCandidates, ICandidate, validateVote } from '../helpers/helpers';
+import { getRandomCandidates, validateVote } from '../helpers/helpers';
 import './styles/VotingList.css'
+import CandidateDetail from './presentationalComponents/CandidateDetail'
 
 const VotingList = (props: any) => {
     const propsCandidates = parseInt(props.match.params.candidates)
@@ -71,42 +72,6 @@ const VotingList = (props: any) => {
                 </tbody>
             </table>
         </div>
-    )
-}
-
-const CandidateDetail = ({ candidate, handdleSetVote, lastUpdatedId }: { candidate: ICandidate, handdleSetVote: Function, lastUpdatedId: number }) => (
-    <tr
-        className={lastUpdatedId === candidate.id ? 'table-active' : ''}
-    >
-        <td className="firstName">{candidate.firstname}</td>
-        <td className="lastName">{candidate.lastname}</td>
-        <td className="age">{candidate.age}</td>
-        <td className="slogan">{candidate.slogan}</td>
-        <Vote
-            votes={candidate.votes || 0}
-            handdleSetVote={(newVote: number) => handdleSetVote(candidate.id, newVote)}
-        />
-    </tr>
-)
-
-const Vote = ({ votes, handdleSetVote }: { votes: number, handdleSetVote: Function }) => {
-    return (
-        <td className='d-flex justify-content-around'>
-            <div>{votes}</div>
-            <div className='button-group'>
-                <button
-                    className="btn btn-primary"
-                    disabled={!validateVote(votes + 1)}
-                    onClick={() => handdleSetVote(votes + 1)}
-                >+</button>
-                <button
-                    className="btn btn-primary"
-                    disabled={!validateVote(votes - 1)}
-                    onClick={() => handdleSetVote(votes - 1)}
-                >-</button>
-            </div>
-
-        </td>
     )
 }
 

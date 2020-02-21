@@ -37,7 +37,7 @@ const RegisterForm = (): any => {
             body
         }
 
-        fetch("http://sgaviria.com​/api/1/front-dev/", config)
+        fetch("https://sgaviria.com​/api/1/front-dev/", config)
             .then(response => response.json())
             .then(result => {
                 setFetched(false)

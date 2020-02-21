@@ -17,7 +17,7 @@ const Field = (
     return (
 
         <div className="filed form-group">
-            <label>{placeholder}</label>
+            <label className='h5'>{placeholder}</label>
             <input
                 className={'form-control'}
                 placeholder={placeholder}
